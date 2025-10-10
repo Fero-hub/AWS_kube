@@ -18,12 +18,11 @@ resource "aws_vpc" "example" {
 }
 
 # Príklad: S3 bucket
-resource "aws_s3_bucket" "example_bucket_mozemjebis" {
-  bucket = example_bucket_mozemjebis
-  acl    = "private"
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket-blablabla"
 
   tags = {
-    Environment = "dev"
-    ManagedBy   = "Terraform"
+    Name        = "My bucket"
+    Environment = "Dev"
   }
 }
