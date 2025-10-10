@@ -17,12 +17,10 @@ resource "aws_vpc" "example" {
   cidr_block = "10.1.0.0/16"
 }
 
-# Príklad: S3 bucket
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket-blablabla"
+resource "random_id" "suffix" {
+  byte_length = 8
+}
 
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket-${random_id.suffix.hex}"
 }
