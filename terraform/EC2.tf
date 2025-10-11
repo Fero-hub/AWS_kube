@@ -63,3 +63,4 @@ resource "aws_iam_role_policy_attachment" "s3_rw_attach" {
   policy_arn = aws_iam_policy.s3_rw.arn
 }
 
+
