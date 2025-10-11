@@ -24,5 +24,9 @@ resource "random_id" "suffix" {
 }
 
 resource "aws_s3_bucket" "interna_appka" {
-  bucket = "interna_appka"
+  bucket = "interna-appka" 
+  
+  tags = {
+    Name = "interna-appka"
+  }
 }
