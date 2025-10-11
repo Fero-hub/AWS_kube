@@ -13,7 +13,7 @@ provider "aws" {
 
 resource "aws_vpc" "main_vpc" {
   cidr_block = "10.1.0.0/16"
-  
+
   tags = {
     Name = "main_vpc"
   }
@@ -23,6 +23,6 @@ resource "random_id" "suffix" {
   byte_length = 8
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket-${random_id.suffix.hex}"
+resource "aws_s3_bucket" "interna_appka" {
+  bucket = "interna_appka"
 }
