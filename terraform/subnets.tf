@@ -1,6 +1,7 @@
 resource "aws_subnet" "pub_subnet" {
   vpc_id     = aws_vpc.main_vpc.id
   cidr_block = "10.1.0.0/24"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "pub_subnet"
@@ -39,6 +40,13 @@ resource "aws_security_group" "allow_ssh" {
   ingress {
     from_port   = 22
     to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
