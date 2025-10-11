@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "interna_appka" {
   }
 }
 
-resource "aws_s3_bucket" "tfstate_s3_mojstate" {  # ZMEŇ NÁZOV (bez pomlčiek)
+resource "aws_s3_bucket" "tfstate_s3_mojstate" {
   bucket = "tfstate-s3-mojstate" 
   
   tags = {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "tfstate_s3_mojstate" {  # ZMEŇ NÁZOV (bez pomlčiek)
 }
 
 resource "aws_s3_bucket_versioning" "terraform_state" {
-  bucket = aws_s3_bucket.tfstate_s3_mojstate.id  # OPRAV REFERENCIU
+  bucket = aws_s3_bucket.tfstate_s3_mojstate.id
   
   versioning_configuration {
     status = "Enabled"
