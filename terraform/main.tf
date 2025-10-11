@@ -11,6 +11,15 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket         = "tfstate-s3-mojstate" 
+    key            = "terraform/state/terraform.tfstate"
+    region         = "eu-central-1"
+    encrypt        = true
+  }
+}
+
 resource "aws_vpc" "main_vpc" {
   cidr_block = "10.1.0.0/16"
 
@@ -23,10 +32,3 @@ resource "random_id" "suffix" {
   byte_length = 8
 }
 
-resource "aws_s3_bucket" "interna_appka" {
-  bucket = "interna-appka" 
-  
-  tags = {
-    Name = "interna-appka"
-  }
-}
