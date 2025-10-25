@@ -2,7 +2,7 @@ data "aws_key_pair" "ec2_key" {
   key_name   = "ec2_key"
 }
 
-resource "aws_instance" "web_server" {     #3.67.194.199
+resource "aws_instance" "web_server" {     #3.77.192.54
   ami           = "ami-0d97a9277bcfb233f"
   instance_type = "t2.micro"
   key_name      = data.aws_key_pair.ec2_key.key_name
